@@ -20,6 +20,6 @@ with open('proxy.txt', 'w') as f:
             print("Proxy Found: "+proxy)
   
             clean = proxy.split(':')[0]                      #ip sem a porta
-            print("Ping to: "+proxy+" whit status: "+str( subprocess.call('ping '+cleanProxy(proxy)) ))
+            print("Ping to: "+proxy+" whit status: " + str( subprocess.call('ping '+ proxy )))
     
 
