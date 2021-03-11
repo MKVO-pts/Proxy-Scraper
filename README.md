@@ -30,3 +30,4 @@ This project use the following modules:
 * bs4 (BeautifulSoup)
 * requestes
 * re
+* subprocess
