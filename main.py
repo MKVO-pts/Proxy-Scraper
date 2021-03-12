@@ -32,7 +32,7 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
     time.sleep(timewait)
 
 
-#with open('proxy.txt', 'w') as f:
+#xwith open('proxy.txt', 'w') as f:
     
     #for website in search("free proxy server", tld="co.in", num=1000, stop=1000, pause=2): #pesquisa por"freeproxyserver" no google
         #print("Searching in: "+website) 
