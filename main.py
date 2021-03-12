@@ -16,10 +16,7 @@ with open('proxy.txt', 'w') as f:
         proxys = re.findall(r'((?:\d{1,3}\.){3}\d{1,3}[:]\d+)', data.text)      #procura por proxies no site
         for proxy in proxys: 
             
-            f.write(proxy+"\n")                             #guarda no file "proxy.txt"
+            f.write(proxy+"\n")                           #guarda no file "proxy.txt"
             print("Proxy Found: "+proxy)
-  
-            clean = proxy.split(':')[0]                      #ip sem a porta
-            print("Ping to: "+proxy+" whit status: " + str( subprocess.call('ping '+ proxy )))
-    
-
+            
+            print("Ping to: "+proxy+" whit status: " + str( subprocess.call('nmap -p {port} {ip}'.format(porta=proxy.split(':')[1], ip=proxy.split(':')[0])))
