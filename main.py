@@ -22,7 +22,8 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
         continue
     print("Searching in: "+website)
     data = requests.get('{url}'.format(url=website))
-    proxys = re.findall(r'((?:\d{1,3}\.){3}\d{1,3}):(\d+)', data.text)
+    scraped = re.findall(r'((?:\d{1,3}\.){3}\d{1,3}):(\d+)', data.text)
+    proxys = list(dict.fromkeys(scraped))
     if(proxys):
         for proxy in proxys:
             with open('proxy.txt', 'a') as f: 
