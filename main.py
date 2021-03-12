@@ -46,6 +46,7 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
         #proxys = re.findall(r'((?:\d{1,3}\.){3}\d{1,3}[:]\d+)', data.text)      #procura por proxies no site
         #for proxy in proxys: 
             
+
             #f.write(proxy+"\n")                             #guarda no file "proxy.txt"
             #print("Proxy Found: "+proxy)
   
@@ -53,4 +54,10 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
             #print("Ping to: "+proxy+" whit status: " + str( subprocess.call('ping '+ proxy )))
 
     
+
+
+            #f.write(proxy+"\n")                           #guarda no file "proxy.txt"
+            #print("Proxy Found: "+proxy)
+            
+            #print("Ping to: "+proxy+" whit status: " + str( subprocess.call('nmap -p {port} {ip}'.format(porta=proxy.split(':')[1], ip=proxy.split(':')[0])))
 
