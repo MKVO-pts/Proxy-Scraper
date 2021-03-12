@@ -4,6 +4,7 @@ import requests
 import subprocess
 import time
 import random
+import re
 
 quantSearchs = int( input("Number of Sites to search ") )
 #Remove os seguintes caracteres: ()',
