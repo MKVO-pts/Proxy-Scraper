@@ -31,3 +31,9 @@ This project use the following modules:
 * requestes
 * re
 * subprocess
+* time
+* random
+
+## Required programs
+This project use the following programs:
+* nmap
