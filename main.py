@@ -17,15 +17,24 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
     data = requests.get('{url}'.format(url=website))                                                   #tira a info do site
     scraped = re.findall(r'((?:\d{1,3}\.){3}\d{1,3}[:]\d+)', data.text)                                #filtra as proxys do site
     proxys = list(dict.fromkeys(scraped))                                                              #remove as proxys repetidas     
-    if(proxys):
+    
+    if(proxys): #se existirem proxys no site
         for proxy in proxys:
+            
+            #nmap -p , nas proxys
+            ip, port = proxy.split(":")
+            status = str(subprocess.run(["nmap", "-p", f"{port}", f"{ip}"]))
+            print(f"Pint to {proxy} with status: {status}")
+            
+            #guarda as proxys
             with open('proxy.txt', 'a') as f: 
                 f.write(proxy+"\n")                                 #guarda no file "proxy.txt"
                 print("Proxy Found: ",proxy)
     else:
         with open('FakeWebsites.txt', 'a') as f_2:
             f_2.write(website + "\n")                                #adiciona os sites sem proxys ao ficheiro de text
-
+    
+    #timeout para evitar passar o limit de requests
     timewait = random.randint(30,60)
     print("Waiting "+str(timewait)+" seconds")
     time.sleep(timewait)
