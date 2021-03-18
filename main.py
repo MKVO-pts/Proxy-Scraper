@@ -35,7 +35,7 @@ class InfoGraver:                              #classe para tirar info
 quantSearchs = int( input("Number of Sites to search: ") )      
 FakeWebsites = [i.strip().split() for i in open("FakeWebsites.txt").readlines()]
     
-for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=quantSearchs, pause=2): #pesquisa por"freeproxyserver" no google
+for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=quantSearchs, pause=3): #pesquisa por"freeproxyserver" no google
     if any(website in s for s in FakeWebsites):
         continue
     print("Searching in: "+website)
