@@ -19,21 +19,23 @@ $ bash install.sh (not done yet)
 ```
 ## Features
 This project do:
-* Send data about a member when requested(using discord bot commands)
-* Track your war events (updated every 1min)
-* Send a message when someone join/leave the clan ( MAX: 2 min delay)
-* Create a amount of files whit info of every member who joined the cla (update every 3 min)
+* Scrape sites from the internet
+* Scrape the proxies automatically
+* Remove the repeated proxies 
+* Grab info about them (ping,country,city...)
 
 ## Python libraries
 This project use the following modules:
 * google (googlesearch)
 * bs4 (BeautifulSoup)
+* ipwhois
+* random
 * requestes
 * re
 * subprocess
 * time
-* random
 
 ## Required programs
 This project use the following programs:
 * nmap
+* proxychains (optional)
