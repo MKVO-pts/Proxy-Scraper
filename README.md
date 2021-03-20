@@ -15,7 +15,7 @@ first use git clone to download the project, then run the install.sh
 ```
 $ git clone https://github.com/MKVO-pts/Proxy-Scraper.git
 $ cd Proxy-scraper
-$ bash install.sh (not done yet)
+$ bash install.sh
 ```
 ## Features
 This project do:
