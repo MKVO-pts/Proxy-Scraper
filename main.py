@@ -53,10 +53,10 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
             
             #filtra apenas as que estao vivas
             if "Host is up " in status:                     #verifica se a frase aparece quando usamos o comando do nmap
-	            print(f'{proxy} is Alive')
+	    	print(f'{proxy} is Alive')
                 
                 #saca info das proxys que estao "Alive"
-                print(InfoGraver(ip))
+            	print(InfoGraver(ip))
                 
                 
                 #guarda as proxys
@@ -64,10 +64,10 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
                     f.write(proxy+"\n")                                 #guarda no file "proxy.txt"
             
             elif "Note: Host seems down." in status:
-	            print(f'{proxy} is Dead')
+                print(f'{proxy} is Dead')
 
             else:    #se nao estiver dead ou alive
-            	print('Erro desconhecido')
+                print('Erro desconhecido')
  
             
     else:
