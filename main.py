@@ -7,7 +7,42 @@ import random
 import json
 import time
 import re
+import PySimpleGUI as sg
 
+def UI():
+    # Create List whit Proxys
+    Proxylist = [i.strip().split() for i in open("proxy.txt").readlines()]
+
+    file_list_column = [
+        [
+            sg.Listbox(
+                values=Proxylist, enable_events=True, size=(40,20), key="-PROXY_LIST-"
+            )
+        ],
+    ]
+    layout = [
+        [
+            sg.Button('Load_Proxy'),
+            sg.Column(file_list_column),
+            sg.VSeperator(),
+        ]
+    ]
+    window = sg.Window("Proxy Scraper", layout)
+
+    while True:
+
+        event, values = window.read()
+        if event == "Exit" or event == sg.WIN_CLOSED:
+            break
+
+        if event == 'Load_Proxy':
+            # Create List whit Proxys
+            Proxylist = [i.strip().split() for i in open("proxy.txt").readlines()]
+            # Add proxy list to ListBox
+            window.Element('-PROXY_LIST-').Update(values=Proxylist)
+            print("Proxys Loaded")
+
+UI()
 #classe para tirar info das proxys
 #a que stou a usar atualmente pode n ser a melhor, mas ao menos n temos de a criar ficheiros para cache
 class InfoGraver:                              #classe para tirar info
@@ -52,9 +87,14 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
             status = str(subprocess.check_output(["nmap", "-p", f"{port}", f"{ip}"]))
             
             #filtra apenas as que estao vivas
+<<<<<<< Updated upstream
             if "Host is up " in status:                     #verifica se a frase aparece quando usamos o comando do nmap
 	    	print(f'{proxy} is Alive')
                 
+=======
+            if ("Host is up " in status):           #verifica se a frase aparece quando usamos o comando do nmap
+                print(f'{proxy} is Alive')
+>>>>>>> Stashed changes
                 #saca info das proxys que estao "Alive"
             	print(InfoGraver(ip))
                 

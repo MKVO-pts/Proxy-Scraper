@@ -34,6 +34,7 @@ This project use the following modules:
 * re
 * subprocess
 * time
+* pysimplegui
 
 ## Required programs
 This project use the following programs:
