@@ -50,7 +50,7 @@ class InfoGraver:                              #classe para tirar info
 		self.proxy = proxy
 		self.info = IPWhois(f'{ip}')
 		self.geral = self.info.lookup_whois()
-		self.infos()
+
 	def infos(self):
 
 		pais = self.geral['nets'][0]['country']
@@ -87,27 +87,22 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
             status = str(subprocess.check_output(["nmap", "-p", f"{port}", f"{ip}"]))
             
             #filtra apenas as que estao vivas
-<<<<<<< Updated upstream
             if "Host is up " in status:                     #verifica se a frase aparece quando usamos o comando do nmap
-	    	print(f'{proxy} is Alive')
-                
-=======
-            if ("Host is up " in status):           #verifica se a frase aparece quando usamos o comando do nmap
-                print(f'{proxy} is Alive')
->>>>>>> Stashed changes
+                 print(f'{proxy} is Alive')
+
                 #saca info das proxys que estao "Alive"
-            	print(InfoGraver(ip))
+                 print(InfoGraver(ip).infos())
                 
                 
                 #guarda as proxys
-                with open('proxy.txt', 'a') as f: 
-                    f.write(proxy+"\n")                                 #guarda no file "proxy.txt"
+                 with open('proxy.txt', 'a') as f: 
+                     f.write(proxy+"\n")                                 #guarda no file "proxy.txt"
             
             elif "Note: Host seems down." in status:
-                print(f'{proxy} is Dead')
+                 print(f'{proxy} is Dead')
 
             else:    #se nao estiver dead ou alive
-                print('Erro desconhecido')
+                 print('Erro desconhecido')
  
             
     else:
@@ -117,10 +112,7 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
     #timeout para evitar passar o limit de requests
     timewait = random.randint(30,60)
     print("Waiting "+str(timewait)+" seconds")
-    time.sleep(timewait)
-
-
-#with open('proxy.txt', 'w') as f:
+    time.sleep(timewait)#with open('proxy.txt', 'w') as f:
     
     #for website in search("free proxy server", tld="co.in", num=1000, stop=1000, pause=2): #pesquisa por"freeproxyserver" no google
         #print("Searching in: "+website) 
