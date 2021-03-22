@@ -15,6 +15,7 @@ class InfoGraver:                              #classe para tirar info
 		self.proxy = proxy
 		self.info = IPWhois(f'{ip}')
 		self.geral = self.info.lookup_whois()
+		self.infos()
 	def infos(self):
 
 		pais = self.geral['nets'][0]['country']
@@ -55,7 +56,7 @@ for website in search("free proxy server", tld="co.in", num=quantSearchs, stop=q
 	            print(f'{proxy} is Alive')
                 
                 #saca info das proxys que estao "Alive"
-                print(InfoGraver(ip).infos())
+                print(InfoGraver(ip))
                 
                 
                 #guarda as proxys
