@@ -9,7 +9,10 @@ import time
 import re
 import PySimpleGUI as sg
 
-def UI():
+
+f= open("proxy.txt","w+")
+
+""" def UI():
     # Create List whit Proxys
     Proxylist = [i.strip().split() for i in open("proxy.txt").readlines()]
 
@@ -42,7 +45,7 @@ def UI():
             window.Element('-PROXY_LIST-').Update(values=Proxylist)
             print("Proxys Loaded")
 
-UI()
+UI() """
 #classe para tirar info das proxys
 #a que stou a usar atualmente pode n ser a melhor, mas ao menos n temos de a criar ficheiros para cache
 class InfoGraver:                              #classe para tirar info
